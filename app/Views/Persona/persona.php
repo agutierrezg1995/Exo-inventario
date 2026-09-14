@@ -12,8 +12,8 @@ Personas
                 <i class="pe-7s-users icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Clientes / Provedores
-                <div class="page-title-subheading">Listado de todas tus Clientes y Provedores
+            <div>Clientes y Proveedores
+                <div class="page-title-subheading">Directorio de clientes y proveedores
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@ Personas
                     <span class="btn-icon-wrapper pr-2 opacity-7">
                         <i class="fa fa-plus-circle fa-w-20"></i>
                     </span>
-                    Nuevo Cliente/Provedor
+                    Nuevo cliente o proveedor
                 </button>
             <?php endif; ?>
         </div>

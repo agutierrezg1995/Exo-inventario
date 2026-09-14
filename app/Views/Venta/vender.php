@@ -60,12 +60,14 @@ Registrar Venta
                 <?= form_close() ?>
                 <form id="agregar-form">
                     <div class="form-group row">
-                        <label for="producto" class="col-sm-2 col-form-label">Código</label>
+                        <label for="producto" class="col-sm-2 col-form-label">Producto disponible</label>
                         <div class="col-sm-8">
-                            <input onkeydown="onKeyDownHandler(event);" class="custom-select" name="producto" id="producto" type="number" min="0" pattern="^[0-9]+" />
+                            <select class="custom-select" name="producto" id="producto" required>
+                                <option value="">Cargando productos disponibles...</option>
+                            </select>
                         </div>
                         <div class="col-sm-2">
-                            <button type="submit" class="btn btn-primary" id="venderBtn">Agregar</button>
+                            <button type="submit" class="btn btn-primary" id="venderBtn"><i class="fas fa-cart-plus mr-1"></i>Agregar</button>
                         </div>
                     </div>
                 </form>

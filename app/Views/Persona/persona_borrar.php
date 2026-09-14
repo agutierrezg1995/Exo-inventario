@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content text-center">
             <div class="modal-header">
-                <h5 class="modal-title"><?= $deleted_at == null ? 'Desactivar' : 'Activar' ?> Clente/Provedor</h5>
+                <h5 class="modal-title"><?= $deleted_at == null ? 'Desactivar' : 'Activar' ?> cliente o proveedor</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

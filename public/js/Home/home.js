@@ -1,3 +1,20 @@
+function animarNumero(elemento, destino, prefijo = "") {
+  const valorFinal = Number(destino) || 0;
+  const inicio = performance.now();
+  const duracion = 650;
+
+  function actualizar(ahora) {
+    const progreso = Math.min((ahora - inicio) / duracion, 1);
+    const suavizado = 1 - Math.pow(1 - progreso, 3);
+    elemento.textContent = prefijo + Math.round(valorFinal * suavizado).toLocaleString("es-ES");
+    if (progreso < 1) {
+      requestAnimationFrame(actualizar);
+    }
+  }
+
+  requestAnimationFrame(actualizar);
+}
+
 function home() {
   $.ajax({
     type: "POST",
@@ -12,17 +29,19 @@ function home() {
       let ventas = document.getElementById("ventas");
       let gastos = document.getElementById("gastos");
       let provedores = document.getElementById("provedores");
+      let totalProductos = document.getElementById("total-productos");
+      let unidadesDisponibles = document.getElementById("unidades-disponibles");
+      let alertasStock = document.getElementById("alertas-stock");
       tabla.innerHTML = "";
       if (data.productos.length > 0) {
         for (producto of data.productos) {
           let fila = `
-                        <td class="text-center">${producto.id}</td>
                         <td>${producto.nombre_producto}</td>
                         <td class="text-center">${producto.stock}</td>
                         <td class="text-center">${producto.stock_critico}</td>
                         <td class="text-center">
-                            <button type="button" class="btn btn-info" onclick="edit(${producto.id})">
-                                <i class="fa fa-edit"></i>
+                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="edit(${producto.id})" title="Editar producto">
+                              <i class="fa fa-edit"></i>
                             </button>
                         </td>
                         `;
@@ -36,17 +55,13 @@ function home() {
                   </tr>`;
         tabla.innerHTML = fila;
       }
-      clientes.innerHTML = data.clientes;
-
-      provedores.innerHTML = data.provedores;
-
-      data.operaciones.ventas
-        ? (ventas.innerHTML = "$" + data.operaciones.ventas)
-        : (ventas.innerHTML = "$0");
-
-      data.operaciones.gastos
-        ? (gastos.innerHTML = "$" + data.operaciones.gastos)
-        : (gastos.innerHTML = "$0");
+      animarNumero(clientes, data.clientes);
+      animarNumero(provedores, data.provedores);
+      animarNumero(totalProductos, data.total_productos);
+      animarNumero(unidadesDisponibles, data.unidades_disponibles);
+      animarNumero(alertasStock, data.alertas_stock);
+      animarNumero(ventas, data.operaciones.ventas, "$ ");
+      animarNumero(gastos, data.operaciones.gastos, "$ ");
     },
     error: (xhr, ajaxOption, thrownError) =>
       alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError),

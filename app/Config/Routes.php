@@ -35,6 +35,8 @@ $routes->setAutoRoute(false);
 $routes->match(['get', 'post'], '/', 'Usuario::login', 		['as' => 'login', 'filter' => 'noauth']);
 $routes->get('logout', 				'Usuario::logout',		['as' => 'logout']);
 $routes->get('usuario', 			'Usuario::index', 		['filter' => 'auth']);
+$routes->get('configuracion',		'Usuario::configuracion',	['filter' => 'auth']);
+$routes->post('configuracion/actualizar', 'Usuario::actualizarConfiguracion', ['filter' => 'auth']);
 $routes->post('usuario/lista', 		'Usuario::obtenerData', ['filter' => 'auth']);
 $routes->post('usuario/agregar', 	'Usuario::agregar', 	['filter' => 'super']);
 $routes->post('usuario/editar', 	'Usuario::editar', 		['filter' => 'auth']);

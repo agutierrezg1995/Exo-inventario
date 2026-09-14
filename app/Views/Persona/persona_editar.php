@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Clientes/Provedores</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar clientes y proveedores</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -43,7 +43,7 @@
                     <div class="col-md-12">
                         <div class="custom-control custom-radio">
                             <input type="radio" id="customRadio2-edit" name="tipo" class="custom-control-input tipo-radio" value="0" <?= $tipo == 0 ? 'checked' : '' ?>>
-                            <label class="custom-control-label" for="customRadio2-edit">Provedor</label>
+                            <label class="custom-control-label" for="customRadio2-edit">Proveedor</label>
                             <div class="invalid-feedback validationTipo">
 
                             </div>

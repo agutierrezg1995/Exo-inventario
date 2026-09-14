@@ -7,10 +7,10 @@
     <meta http-equiv="Content-Language" content="es">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <?= csrf_meta() ?>
-    <title>SICV | <?= $this->renderSection('titulo') ?></title>
+    <title>Nexo Inventarios | <?= $this->renderSection('titulo') ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="msapplication-tap-highlight" content="no">
-    <link rel="shortcut icon" href="<?= base_url('images/logo.png') ?>" type="image/png">
+    <link rel="icon" href="<?= base_url('images/nexo-favicon.svg') ?>" type="image/svg+xml">
     <link href="<?= base_url() . '/css/main.css' ?>" rel="stylesheet">
     <link href="<?= base_url() . '/css/micss.css' ?>" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= base_url('DataTables/DataTables-1.10.24/css/dataTables.bootstrap4.min.css') ?>" />

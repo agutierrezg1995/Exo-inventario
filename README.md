@@ -27,4 +27,3 @@ Luego ejecuta el seeder para el correcto funcionamiento del sistema (Nota: revis
 
     php spark db:seed InitSeed
 
-**By Noubot**

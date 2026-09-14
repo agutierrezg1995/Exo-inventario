@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="es">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>SICV | Login</title>
+    <title>Nexo Inventarios | Acceso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <link rel="icon" href="<?= base_url('images/nexo-favicon.svg') ?>" type="image/svg+xml">
 
     <link href="<?= base_url() ?>/css/main.css" rel="stylesheet">
 
@@ -19,7 +20,10 @@
             <div class="h-100 bg-plum-plate bg-animation">
                 <div class="d-flex h-100 justify-content-center align-items-center">
                     <div class="mx-auto app-login-box col-md-8">
-                        <div class="app-logo-inverse text-center mb-3"><img src="/images/logo.png" alt="" srcset=""></div>
+                        <div class="nexo-login-brand text-center mb-3">
+                            <span class="nexo-mark" aria-hidden="true"><i class="fas fa-boxes"></i></span>
+                            <span class="nexo-brand-name">Nexo Inventarios</span>
+                        </div>
                         <div class="modal-dialog w-100 mx-auto">
                             <div class="modal-content">
                                 <div class="modal-body">
@@ -64,7 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center text-white opacity-8 mt-3">Copyright © ArchitectUI 2019</div>
+                        <div class="text-center text-white opacity-8 mt-3">Nexo Inventarios</div>
                     </div>
                 </div>
             </div>

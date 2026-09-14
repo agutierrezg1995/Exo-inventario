@@ -1,6 +1,6 @@
 <div class="app-sidebar sidebar-shadow">
     <div class="app-header__logo">
-        <div class="logo-src"></div>
+        <div class="nexo-brand"><span class="nexo-mark" aria-hidden="true"><i class="fas fa-boxes"></i></span><span>exo Inventarios</span></div>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -32,14 +32,14 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Dashboard</li>
+                <li class="app-sidebar__heading">Resumen</li>
                 <li>
                     <a href="<?= base_url('home') ?>" <?= $vista == 'home' ? 'class="mm-active"' : '' ?>>
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Home
+                        Inicio
                     </a>
                 </li>
-                <li class="app-sidebar__heading">MENU</li>
+                <li class="app-sidebar__heading">OPERACIÓN</li>
                 <li>
                     <a href="<?= base_url('categoria') ?>" <?= $vista == 'categoria' ? 'class="mm-active"' : '' ?>>
                     <i class="metismenu-icon pe-7s-diamond"></i>
@@ -61,14 +61,20 @@
                 <li>
                     <a href="<?= base_url('persona') ?>" <?= $vista == 'pesona' ? 'class="mm-active"' : '' ?>>
                     <i class="metismenu-icon pe-7s-users"></i>
-                        Clientes y Provedores
+                        Clientes y Proveedores
                     </a>
                 </li>
-                <li class="app-sidebar__heading">SISTEMA</li>
+                <li class="app-sidebar__heading">ADMINISTRACIÓN</li>
                 <li>
                     <a href="<?= base_url('usuario') ?>" <?= $vista == 'usuario' ? 'class="mm-active"' : '' ?>>
                     <i class="metismenu-icon pe-7s-user"></i>
                         Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= base_url('configuracion') ?>" <?= $vista == 'configuracion' ? 'class="mm-active"' : '' ?>>
+                    <i class="metismenu-icon pe-7s-config"></i>
+                        Configuración
                     </a>
                 </li>
             </ul>

@@ -30,7 +30,7 @@ Ventas
 <?php if (session('success')) : ?>
         <div class="col-12">
             <div class=" alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Hey!</strong>
+                <strong>Listo:</strong>
                 <?= session('success') ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

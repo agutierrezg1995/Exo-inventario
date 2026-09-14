@@ -2,13 +2,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Registro de Clientes/Provedores</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Registro de clientes y proveedores</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <h5 class="card-title">Nuevo Cliente/Provedor</h5>
+                <h5 class="card-title">Nuevo cliente o proveedor</h5>
                 <?= form_open('persona/agregar', ['id' => 'persona-agregar']) ?>
                 <div class="form-row">
                     <div class="col-md-6">
@@ -41,7 +41,7 @@
                     <div class="col-md-12">
                         <div class="custom-control custom-radio">
                             <input type="radio" id="customRadio2" name="tipo" class="custom-control-input tipo-radio" value="0">
-                            <label class="custom-control-label" for="customRadio2">Provedor</label>
+                            <label class="custom-control-label" for="customRadio2">Proveedor</label>
                             <div class="invalid-feedback validationTipo">
 
                             </div>

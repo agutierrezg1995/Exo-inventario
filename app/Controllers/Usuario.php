@@ -60,6 +60,62 @@ class Usuario extends BaseController
         return view('Usuario/usuario', $data);
     }
 
+    public function configuracion()
+    {
+        $usuarioModel = new UsuarioModel();
+        $data['vista'] = 'configuracion';
+        $data['usuario'] = $usuarioModel->find(session('id'));
+        return view('Usuario/configuracion', $data);
+    }
+
+    public function actualizarConfiguracion()
+    {
+        if (!$this->request->isAJAX()) {
+            return redirect()->to('configuracion');
+        }
+
+        $id = session('id');
+        $rules = [
+            'username' => "required|max_length[50]|is_unique[usuario.username,id,$id]",
+            'nombre' => 'permit_empty|max_length[50]',
+            'apellido' => 'permit_empty|max_length[50]',
+            'email' => "permit_empty|valid_email|max_length[255]|is_unique[usuario.email,id,$id]",
+            'password_actual' => 'permit_empty|validatePass[id,password_actual]',
+            'password_nueva' => 'permit_empty|min_length[8]',
+            'password_confirmacion' => 'matches[password_nueva]'
+        ];
+        $messages = [
+            'username' => ['required' => 'Ingrese su nombre de usuario', 'is_unique' => 'Ese nombre de usuario ya está en uso'],
+            'nombre' => [],
+            'apellido' => [],
+            'email' => ['valid_email' => 'Ingrese un correo válido', 'is_unique' => 'Ese correo ya está en uso'],
+            'password_actual' => ['validatePass' => 'La contraseña actual no es correcta'],
+            'password_nueva' => ['min_length' => 'La nueva contraseña debe tener al menos 8 caracteres'],
+            'password_confirmacion' => ['matches' => 'Las contraseñas nuevas no coinciden']
+        ];
+
+        $datosValidacion = $this->request->getPost();
+        $datosValidacion['id'] = $id;
+        if (!$this->validate($rules, $messages, $datosValidacion)) {
+            return $this->response->setJSON(['error' => $this->validator->getErrors()]);
+        }
+
+        $datos = [
+            'username' => $this->request->getPost('username'),
+            'nombre' => $this->request->getPost('nombre'),
+            'apellido' => $this->request->getPost('apellido'),
+            'email' => $this->request->getPost('email')
+        ];
+        if ($this->request->getPost('password_nueva')) {
+            $datos['password'] = $this->request->getPost('password_nueva');
+        }
+
+        $usuarioModel = new UsuarioModel();
+        $usuarioModel->update($id, $datos);
+        session()->set(array_intersect_key($datos, array_flip(['username', 'nombre', 'apellido', 'email'])));
+        return $this->response->setJSON(['success' => 'Configuración actualizada correctamente']);
+    }
+
     public function obtenerData()
     {
         if ($this->request->isAJAX()) {

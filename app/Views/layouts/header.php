@@ -1,6 +1,6 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
-        <div class="logo-src"></div>
+        <div class="nexo-brand"><span class="nexo-mark" aria-hidden="true"><i class="fas fa-boxes"></i></span><span>exo Inventarios</span></div>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -38,10 +38,10 @@
                             <?= session('username') ?>
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn dropdown-toggle">
-                                    <?= session()->get('admin') == 1 ? '<img width="42" class="rounded-circle" src="/images/admin_pic.png" alt="">' : '<img width="42" class="rounded-circle" src="/images/user_logo.png" alt="">' ?>
+                                    <img width="42" height="42" class="rounded-circle nexo-avatar" src="<?= base_url('images/nexo-avatar.svg') ?>" alt="Avatar de usuario">
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <a href="<?= base_url('usuario') ?>" tabindex="0" class="dropdown-item">Cuenta de usuario</a>
+                                    <a href="<?= base_url('configuracion') ?>" tabindex="0" class="dropdown-item"><i class="fas fa-cog mr-2"></i>Configuración de cuenta</a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a href="<?= route_to("logout") ?>" tabindex="0" class="dropdown-item">Cerrar Sesión</a>
                                 </div>

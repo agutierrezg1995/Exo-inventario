@@ -40,10 +40,46 @@ function cargarClientes() {
     },
   });
 }
+function cargarProductos() {
+  let productos_select = $("#producto");
+  productos_select.find("option").remove();
+  productos_select.append(
+    '<option value="">Seleccione un producto disponible</option>'
+  );
+  $.ajax({
+    type: "POST",
+    url: "/get_productos",
+    data: {
+      csrf_test_name: token,
+    },
+    dataType: "json",
+    success: function (data) {
+      if (data.productos) {
+        for (producto of data.productos) {
+          productos_select.append(
+            `<option value="${producto.codigo}">${producto.nombre_producto} | Código: ${producto.codigo} | Disponible: ${producto.stock} | $${producto.precio_out}</option>`
+          );
+        }
+      } else {
+        productos_select.find("option").remove();
+        productos_select.append(
+          '<option value="">No hay productos disponibles</option>'
+        );
+      }
+    },
+    error: function (xhr, ajaxOption, thrownError) {
+      productos_select.find("option").remove();
+      productos_select.append(
+        '<option value="">No se pudieron cargar los productos</option>'
+      );
+      alert(xhr.status + "\n" + xhr.responseText + "\n" + thrownError);
+    },
+  });
+}
 function onKeyDownHandler(event) {
-  var codigo = event.which || event.keyCode;
-  if (codigo === 9) {
-    $("#venderBtn").click();
+  if (event.key === "Enter") {
+    event.preventDefault();
+    $("#agregar-form").submit();
   }
 }
 function cargarCarro() {
@@ -119,6 +155,9 @@ function quitarProductoDeVenta(index) {
 $("#agregar-form").submit(function (e) {
   e.preventDefault();
   let codigo = $("#producto").val();
+  if (!codigo) {
+    return;
+  }
   $.ajax({
     type: "POST",
     url: "/agregar_al_carro",
@@ -145,6 +184,7 @@ $("#agregar-form").submit(function (e) {
 });
 $(document).ready(function () {
   cargarClientes();
+  cargarProductos();
   cargarCarro();
   $("#producto").focus();
 });
